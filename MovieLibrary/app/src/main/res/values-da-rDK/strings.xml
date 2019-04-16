@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Film Bibliotek</string>
+    <string name="string_MyMovies">Mine Film</string>
+    <string name="String_Exit">Forlad</string>
+    <string name="String_ImageContentDescription">Billede af filmen</string>
+    <string name="String_MovieTitle">Titel</string>
+    <string name="String_RaingUser">Ikke Vurderet</string>
+    <string name="String_UserComment">Bruger kommentar</string>
+    <string name="String_Genres">Genre</string>
+    <string name="String_Watched">Set</string>
+    <string name="String_OK">OK</string>
+    <string name="String_Cancel">Afbryd</string>
+    <string name="String_IMDB">IMDB</string>
+    <string name="String_User">Bruger</string>
+    <string name="Add">Tilføj</string>
+    <string name="Movie_Title">Film Titel</string>
+    <string name="Delete">Slet</string>
+</resources>

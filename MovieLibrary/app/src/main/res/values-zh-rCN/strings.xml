@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">电影集</string>
+    <string name="string_MyMovies">我的电影</string>
+    <string name="String_Exit">退出</string>
+    <string name="String_ImageContentDescription">电影图片</string>
+    <string name="String_MovieTitle">标题</string>
+    <string name="String_RaingUser">未评分</string>
+    <string name="String_UserComment">用户评价</string>
+    <string name="String_Genres">种类</string>
+    <string name="String_Watched">已看</string>
+    <string name="String_OK">确定</string>
+    <string name="String_Cancel">取消</string>
+    <string name="String_IMDB">IMDB</string>
+    <string name="String_User">确定</string>
+    <string name="Add">确定</string>
+    <string name="Movie_Title">确定</string>
+    <string name="Delete">确定</string>
+</resources>

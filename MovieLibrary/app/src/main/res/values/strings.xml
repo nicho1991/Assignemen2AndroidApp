@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">AU538062 Movies</string>
+    <string name="string_MyMovies">MY MOVIES</string>
+    <string name="String_Exit">Exit</string>
+    <string name="String_ImageContentDescription">Image of the movie</string>
+    <string name="String_MovieTitle">Title</string>
+    <string name="String_RaingUser">Not rated</string>
+    <string name="String_UserComment">User comment</string>
+    <string name="String_Genres">Genres</string>
+    <string name="String_Watched">Watched</string>
+    <string name="String_OK">OK</string>
+    <string name="String_Cancel">Cancel</string>
+    <string name="String_IMDB">IMDB</string>
+    <string name="String_User">User</string>
+    <string name="Add">Add</string>
+    <string name="Movie_Title">Movie Title</string>
+    <string name="Delete">Delete</string>
+</resources>

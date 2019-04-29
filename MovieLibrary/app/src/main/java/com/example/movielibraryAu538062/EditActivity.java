@@ -4,8 +4,10 @@ import android.content.ComponentName;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
@@ -13,7 +15,7 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 public class EditActivity extends AppCompatActivity {
-    public MovieModel Movie;
+    public  MovieModel Movie;
     private SeekBar SeekbarUserRating;
     private TextView TextViewUserRating;
     private CheckBox CheckBoxWatched;
@@ -28,6 +30,7 @@ public class EditActivity extends AppCompatActivity {
         unbindService(connection);
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +38,6 @@ public class EditActivity extends AppCompatActivity {
         Intent intent = new Intent(this, MovieService.class);
         bindService(intent,connection, this.BIND_AUTO_CREATE);
     }
-
 
     public void Btn_Cancel(View v) {
         startActivity(new Intent(EditActivity.this, OverviewActivity.class));
@@ -60,12 +62,24 @@ public class EditActivity extends AppCompatActivity {
 
         ViewTitle.setText(Movie.Title);
         if (Movie.UserRating != null) {
-            int value = (int) (Movie.UserRating * 10);
-            SeekbarUserRating.setProgress(value);
-            TextViewUserRating.setText(Double.toString( Movie.UserRating));
+            double value =  (Movie.UserRating);
+
+            if (SeekbarUserRating.getProgress() == 0) {
+                SeekbarUserRating.setProgress((int) value * 10);
+                TextViewUserRating.setText(Double.toString(value));
+            } else {
+                TextViewUserRating.setText(Double.toString( SeekbarUserRating.getProgress() / 10.0));
+
+            }
+
         }
-        CheckBoxWatched.setChecked(Movie.Watched);
-        EditTextUserComment.setText(Movie.Comment);
+        if (!CheckBoxWatched.isChecked()) {
+            CheckBoxWatched.setChecked(Movie.Watched);
+        }
+        if (EditTextUserComment.getText().length() == 0) {
+            EditTextUserComment.setText(Movie.Comment);
+        }
+
 
 
         SeekbarUserRating.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -104,9 +118,14 @@ public class EditActivity extends AppCompatActivity {
             MovieServiceBind = binder.getService();
             MovieServiceBound = true;
 
-            Movie = (MovieModel) getIntent().getExtras().getSerializable("Movie");
-            MovieServiceBind.CurrentMovie = Movie;
+            if (Movie == null) {
+                Movie = (MovieModel) getIntent().getExtras().getSerializable("Movie");
+                MovieServiceBind.CurrentMovie = Movie;
+            }
+
             LoadView();
+
+
         }
 
         @Override
